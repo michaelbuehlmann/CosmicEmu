@@ -9,9 +9,9 @@ target_link_libraries(P_CB_2017 PRIVATE  P_CB_2017_LIB)
 set_target_properties(P_CB_2017 PROPERTIES OUTPUT_NAME emu_Pcb)
 
 if(PYTHON_LIBRARY)
-    pybind11_add_module(P_CB_2017_PY P_cb/pyemu.cxx)
+    pybind11_add_module(P_CB_2017_PY P_cb/pyemu.cpp)
     target_link_libraries(P_CB_2017_PY PRIVATE P_CB_2017_LIB)
-    set_target_properties(P_CB_2017_PY PROPERTIES OUTPUT_NAME emu_2017_cb)
+    set_target_properties(P_CB_2017_PY PROPERTIES OUTPUT_NAME _emu_2017_cb)
 endif()
 
 
@@ -26,7 +26,7 @@ target_link_libraries(P_TOT_2017 PRIVATE P_TOT_2017_LIB)
 set_target_properties(P_TOT_2017 PROPERTIES OUTPUT_NAME emu_Ptot)
 
 if(PYTHON_LIBRARY)
-    pybind11_add_module(P_TOT_2017_PY P_tot/pyemu.cxx)
+    pybind11_add_module(P_TOT_2017_PY P_tot/pyemu.cpp)
     target_link_libraries(P_TOT_2017_PY PRIVATE P_TOT_2017_LIB)
-    set_target_properties(P_TOT_2017_PY PROPERTIES OUTPUT_NAME emu_2017_tot)
+    set_target_properties(P_TOT_2017_PY PROPERTIES OUTPUT_NAME _emu_2017_tot)
 endif()

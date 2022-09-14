@@ -20,7 +20,7 @@ py::array py_emu(
 
     double xstar[9] = {omega_m, omega_b, sigma_8, h, n_s, w_0, w_a, omega_nu};
     // allocate array in fortran order so that elements in column are consecutive
-    py::array_t<double, py::array::f_style> kpk({nmode, 2}, {8});
+    py::array_t<double, py::array::f_style> kpk({nmode, 2});
 
     // fill k
     for(int i=0; i<nmode; ++i) {
@@ -32,8 +32,8 @@ py::array py_emu(
     return kpk;
 }
 
-PYBIND11_MODULE(emu_2017_cb, m) {
-    m.doc() = "Mira-Tita-II (2017) P_cb emulator";
+PYBIND11_MODULE(_emu_2017_tot, m) {
+    m.doc() = "Mira-Titan-II (2017) P_tot emulator";
     m.def(
         "emu", &py_emu,
         py::arg("omega_m"), py::arg("omega_b"), py::arg("sigma_8"),
